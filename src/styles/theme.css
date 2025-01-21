@@ -1,0 +1,116 @@
+/* Theme Variables */
+:root {
+  /* Light Theme Colors */
+  --color-primary-light: #1877F2;
+  --color-primary-hover-light: #1464D9;
+  --color-secondary-light: #E4E6EB;
+  --color-background-light: #FFFFFF;
+  --color-surface-light: #F0F2F5;
+  --color-text-light: #1C1E21;
+  --color-text-secondary-light: #65676B;
+  --color-border-light: rgba(0, 0, 0, 0.1);
+  --color-error-light: #DC2626;
+  --color-success-light: #059669;
+  --color-warning-light: #D97706;
+  
+  /* Dark Theme Colors */
+  --color-primary-dark: #4B96F4;
+  --color-primary-hover-dark: #6AABFF;
+  --color-secondary-dark: #4A4C4F;
+  --color-background-dark: #18191A;
+  --color-surface-dark: #242526;
+  --color-text-dark: #E9EAEB;
+  --color-text-secondary-dark: #CBCDCF;
+  --color-border-dark: rgba(255, 255, 255, 0.1);
+  --color-error-dark: #EF4444;
+  --color-success-dark: #10B981;
+  --color-warning-dark: #F59E0B;
+
+  /* Shadows */
+  --shadow-sm-light: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md-light: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-lg-light: 0 10px 15px rgba(0, 0, 0, 0.05);
+  
+  --shadow-sm-dark: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md-dark: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg-dark: 0 10px 15px rgba(0, 0, 0, 0.3);
+
+  /* Transitions */
+  --transition-colors: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+  --transition-shadow: box-shadow 0.3s ease;
+  --transition-transform: transform 0.2s ease;
+}
+
+/* Apply theme variables */
+:root {
+  color-scheme: light;
+  --color-primary: var(--color-primary-light);
+  --color-primary-hover: var(--color-primary-hover-light);
+  --color-secondary: var(--color-secondary-light);
+  --color-background: var(--color-background-light);
+  --color-surface: var(--color-surface-light);
+  --color-text: var(--color-text-light);
+  --color-text-secondary: var(--color-text-secondary-light);
+  --color-border: var(--color-border-light);
+  --color-error: var(--color-error-light);
+  --color-success: var(--color-success-light);
+  --color-warning: var(--color-warning-light);
+  --shadow-sm: var(--shadow-sm-light);
+  --shadow-md: var(--shadow-md-light);
+  --shadow-lg: var(--shadow-lg-light);
+}
+
+:root.dark {
+  color-scheme: dark;
+  --color-primary: var(--color-primary-dark);
+  --color-primary-hover: var(--color-primary-hover-dark);
+  --color-secondary: var(--color-secondary-dark);
+  --color-background: var(--color-background-dark);
+  --color-surface: var(--color-surface-dark);
+  --color-text: var(--color-text-dark);
+  --color-text-secondary: var(--color-text-secondary-dark);
+  --color-border: var(--color-border-dark);
+  --color-error: var(--color-error-dark);
+  --color-success: var(--color-success-dark);
+  --color-warning: var(--color-warning-dark);
+  --shadow-sm: var(--shadow-sm-dark);
+  --shadow-md: var(--shadow-md-dark);
+  --shadow-lg: var(--shadow-lg-dark);
+}
+
+/* Base styles */
+body {
+  @apply bg-facebook-light-background dark:bg-facebook-dark-background;
+  @apply text-facebook-light-text dark:text-facebook-dark-text;
+  transition: var(--transition-colors);
+}
+
+/* Interactive elements */
+button, a {
+  transition: var(--transition-colors), var(--transition-transform);
+}
+
+button:active, a:active {
+  transform: scale(0.98);
+}
+
+/* Form elements */
+input, textarea, select {
+  @apply bg-facebook-light-background dark:bg-[#2D2E2F];
+  @apply text-facebook-light-text dark:text-facebook-dark-text;
+  @apply border border-facebook-light-secondary/20 dark:border-facebook-dark-secondary/20;
+  @apply placeholder:text-facebook-light-text-secondary/50 dark:placeholder:text-facebook-dark-text-secondary/70;
+  transition: var(--transition-colors), var(--transition-shadow);
+}
+
+input:focus, textarea:focus, select:focus {
+  @apply border-facebook-light-primary dark:border-facebook-dark-primary;
+  @apply ring-1 ring-facebook-light-primary/20 dark:ring-facebook-dark-primary/20;
+}
+
+/* Surface elements */
+.surface {
+  @apply bg-facebook-light-surface dark:bg-facebook-dark-surface;
+  @apply border-facebook-light-secondary/10 dark:border-facebook-dark-secondary/10;
+  transition: var(--transition-colors), var(--transition-shadow);
+}
